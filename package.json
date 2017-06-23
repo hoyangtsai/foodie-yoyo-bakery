@@ -1,0 +1,32 @@
+{
+  "name": "foodie-yoyo-bakery",
+  "version": "1.0.0",
+  "description": "foodie yoyo bakery",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoyangtsai/foodie-yoyo-bakery.git"
+  },
+  "keywords": [
+    "react",
+    "material-ui",
+    "webpack"
+  ],
+  "author": "Ho-Yang Tsai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoyangtsai/foodie-yoyo-bakery/issues"
+  },
+  "homepage": "https://github.com/hoyangtsai/foodie-yoyo-bakery#readme",
+  "dependencies": {
+    "babel-loader": "^7.0.0",
+    "css-loader": "^0.28.4",
+    "material-ui": "^0.18.3",
+    "scss-loader": "0.0.1",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0"
+  }
+}
