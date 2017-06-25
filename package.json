@@ -25,7 +25,7 @@
     "babel-loader": "^7.0.0",
     "css-loader": "^0.28.4",
     "material-ui": "^0.18.3",
-    "scss-loader": "0.0.1",
+    "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.0.0"
   }
