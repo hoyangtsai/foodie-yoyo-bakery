@@ -1,33 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'bootstrap/dist/css/bootstrap.css';
+import { Container, Table } from 'reactstrap';
+
+import './style/index.scss';
+
 const styles = {
-  table: {
-    overflowX: 'auto',
-    minWidth: '480px'
-  },
   tableHeader: {
-    fontSize: '22px',
-    textAlign: 'center'
+    fontSize: '24px',
+    textAlign: 'center',
+    letterSpacing: '6px',
+    marginBottom: '12px'
   },
   tableHeaderNote: {
     fontSize: '12px',
     textAlign: 'right',
-    color: "#000"
-  },
-  tableHeaderColumn: {
-    fontSize: '16px'
+    marginBottom: '6px'
   },
   tableColumn: {
     fontSize: '18px'
   },
-  tableFooter: {
-    textAlign: 'right',
-    padding: '0',
-    height: 'inherit'
+  singlePrice: {
+    fontSize: '14px'
   },
   note: {
-    fontSize: '14px'
+    fontSize: '12px',
+    color: '#f00'
   }
 };
 
@@ -38,9 +37,10 @@ const tableData = [
     price: '72 元/包'
   },
   {
-    name: '南瓜饅頭 季節限定',
+    name: '南瓜饅頭',
     singlePrice: '15 元/個',
-    price: '90 元/包'
+    price: '90 元/包',
+    note: '季節限定'
   },
   {
     name: '黑芝麻卷饅頭',
@@ -80,26 +80,32 @@ export default class Root extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="table-responsive">
-          <table className="table">
-             <thead>
-              <tr>
-                <th>口味</th>
-                <th>售價</th>
+      <Container>
+        <div style={styles.tableHeader}>貪吃yoyo手做烘焙坊</div>
+        <div style={styles.tableHeaderNote}>★一包六個</div>
+        <Table responsive bordered>
+           <thead>
+            <tr>
+              <th>口味</th>
+              <th>售價</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((row, index) => (
+              <tr style={{ ...styles.tableColumn, ...this.getStripedStyle(index) }}>
+                <td>
+                  {row.name} {
+                    (row.note) ? <span style={styles.note}>{row.note}</span> : ''
+                  }
+                  <br/><span style={styles.singlePrice}>{row.singlePrice}</span>
+                </td>
+                <td>{row.price}</td>
               </tr>
-            </thead>
-            <tbody>
-              {tableData.map( (row, index) => (
-                <tr style={{ ...styles.tableColumn, ...this.getStripedStyle(index) }}>
-                  <td>{row.name}<span style={styles.note}><br/>{row.singlePrice}</span></td>
-                  <td>{row.price}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            ))}
+          </tbody>
+        </Table>
+        <div className="ingd-img"><img src="./images/ingd.png"/></div>
+      </Container>
     );
   }
 }

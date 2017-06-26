@@ -4,7 +4,7 @@
   "description": "foodie yoyo bakery",
   "main": "webpack.config.js",
   "scripts": {
-    "server": "webpack-dev-server --inline --hot --port 9000 --content-base dist/",
+    "start": "webpack-dev-server --inline --hot --port 9000 --content-base dist/",
     "publish": "webpack -p"
   },
   "repository": {
@@ -23,7 +23,10 @@
   },
   "homepage": "https://github.com/hoyangtsai/foodie-yoyo-bakery#readme",
   "dependencies": {
-    "material-ui": "^0.18.3"
+    "bootstrap": "^4.0.0-alpha.6",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-addons-transition-group": "^15.6.0",
+    "reactstrap": "^4.6.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -33,11 +36,12 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
+    "node-sass": "^4.5.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^3.0.0",
+    "webpack": "^2.6.1",
     "webpack-dev-server": "^2.5.0"
   }
 }
