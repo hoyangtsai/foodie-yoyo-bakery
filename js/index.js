@@ -105,7 +105,7 @@
 	    textAlign: 'right',
 	    marginBottom: '6px'
 	  },
-	  singlePrice: {
+	  price: {
 	    fontSize: '14px'
 	  },
 	  note: {
@@ -116,33 +116,26 @@
 
 	var tableData = [{
 	  name: '原味饅頭',
-	  singlePrice: '12 元/個',
-	  price: '72 元/包'
+	  price: '12'
 	}, {
 	  name: '南瓜饅頭',
-	  singlePrice: '15 元/個',
-	  price: '90 元/包',
+	  price: '15',
 	  note: '季節限定'
 	}, {
 	  name: '黑芝麻卷饅頭',
-	  singlePrice: '15 元/個',
-	  price: '90 元/包'
+	  price: '15'
 	}, {
 	  name: '蔥花卷饅頭',
-	  singlePrice: '15 元/個',
-	  price: '90 元/包'
+	  price: '15'
 	}, {
 	  name: '全麥饅頭',
-	  singlePrice: '15 元/個',
-	  price: '90 元/包'
+	  price: '15'
 	}, {
 	  name: '黑糖饅頭',
-	  singlePrice: '12 元/個',
-	  price: '72 元/包'
+	  price: '12'
 	}, {
 	  name: '堅果全麥饅頭',
-	  singlePrice: '20 元/個',
-	  price: '120 元/包'
+	  price: '22'
 	}];
 
 	var Root = function (_React$Component) {
@@ -220,14 +213,16 @@
 	                    _react2.default.createElement('br', null),
 	                    _react2.default.createElement(
 	                      'span',
-	                      { style: styles.singlePrice },
-	                      row.singlePrice
+	                      { style: styles.price },
+	                      row.price,
+	                      ' \u5143/\u500B'
 	                    )
 	                  ),
 	                  _react2.default.createElement(
 	                    'td',
 	                    null,
-	                    row.price
+	                    row.price * 6,
+	                    ' \u5143/\u5305'
 	                  )
 	                );
 	              })
