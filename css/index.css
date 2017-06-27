@@ -1,0 +1,18 @@
+.wrapper{
+  padding:24px 0 48px; }
+
+.ingd-img{
+  width:100%;
+  height:224px;
+  margin-top:12px;
+  background:url(../image/ingd.png) top no-repeat;
+  background-size:contain; }
+
+table tbody tr{
+  font-size:18px; }
+
+table tbody tr td:first-child{
+  width:64%; }
+
+table tbody tr td:nth-child(2){
+  width:36%; }
