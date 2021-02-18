@@ -11,7 +11,6 @@ import {
   Paper,
 } from '@material-ui/core';
 
-
 const useStyles = makeStyles({
   table: {
     overflowX: 'auto',
@@ -99,7 +98,7 @@ export default function PriceTable() {
         <TableHead>
           <TableRow>
             <TableCell className={classes.tableHeaderColumn}>口味</TableCell>
-            <TableCell className={classes.tableHeaderColumn} align="right">售價</TableCell>
+            <TableCell className={classes.tableHeaderColumn}>售價</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

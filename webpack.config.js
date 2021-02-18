@@ -4,17 +4,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: './src/app.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     filename: 'bundle.js'
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
+    contentBase: './docs',
   },
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/,
         use: [
           { loader: 'style-loader' },
           {
@@ -32,7 +32,22 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          // publicPath: 'assets',
+          name(resourcePath, resourceQuery) {
+            // `resourcePath` - `/absolute/path/to/file.js`
+            // `resourceQuery` - `?foo=bar`
+            if (process.env.NODE_ENV === 'development') {
+              return '[path][name].[ext]';
+            }
+            return '[contenthash].[ext]';
+          },
+        },
+      },
     ]
   },
   plugins: [
