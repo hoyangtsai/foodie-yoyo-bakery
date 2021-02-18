@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import PriceTable from './component/PriceTable';
 
 export default class Root extends React.Component {
@@ -9,9 +9,9 @@ export default class Root extends React.Component {
   }
   render() {
     return (
-      <MuiThemeProvider>
+      <div>
         <PriceTable />
-      </MuiThemeProvider>
+      </div>
     );
   }
 }

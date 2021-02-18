@@ -1,16 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   Table,
   TableBody,
-  TableHeader,
-  TableHeaderColumn,
+  TableHead,
+  TableCell,
   TableRow,
-  TableRowColumn,
+  TableContainer,
   TableFooter,
-} from 'material-ui/Table';
+  Paper,
+} from '@material-ui/core';
 
 
-const styles = {
+const useStyles = makeStyles({
   table: {
     overflowX: 'auto',
     minWidth: '480px'
@@ -22,7 +24,7 @@ const styles = {
   tableHeaderNote: {
     fontSize: '12px',
     textAlign: 'right',
-    color: "#000"
+    color: '#000'
   },
   tableHeaderColumn: {
     fontSize: '16px'
@@ -38,9 +40,9 @@ const styles = {
   note: {
     fontSize: '14px'
   }
-};
+});
 
-const tableData = [
+const rows = [
   {
     name: '原味饅頭',
     singlePrice: '12 元/個',
@@ -78,49 +80,37 @@ const tableData = [
   }
 ];
 
-class PriceTable extends Component {
-  state = {
-    showRowHover: false,
-    stripedRows: true,
-    showCheckboxes: false
-  };
+export default function PriceTable() {
+  const classes = useStyles();
 
-  getStripedStyle(index) {
-    return { background: index % 2 ? '#fafafa' : 'white' };
-  }
+  // state = {
+  //   showRowHover: false,
+  //   stripedRows: true,
+  //   showCheckboxes: false
+  // };
 
-  render() {
-    return (
-      <Table bodyStyle={styles.table}>
-        <TableHeader
-          displaySelectAll={this.state.showCheckboxes}
-          adjustForCheckbox={this.state.showCheckboxes}
-        >
-          <TableRow >
-            <TableHeaderColumn colSpan="2" style={styles.tableHeader}>
-              貪吃yoyo手作烘焙坊<div style={styles.tableHeaderNote}>★一包六個</div>
-            </TableHeaderColumn>
-          </TableRow>
+  // getStripedStyle(index) {
+  //   return { background: index % 2 ? '#fafafa' : 'white' };
+  // }
+
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="price table">
+        <TableHead>
           <TableRow>
-            <TableHeaderColumn style={styles.tableHeaderColumn}>口味</TableHeaderColumn>
-            <TableHeaderColumn style={styles.tableHeaderColumn}>售價</TableHeaderColumn>
+            <TableCell className={classes.tableHeaderColumn}>口味</TableCell>
+            <TableCell className={classes.tableHeaderColumn} align="right">售價</TableCell>
           </TableRow>
-        </TableHeader>
-        <TableBody
-          displayRowCheckbox={this.state.showCheckboxes}
-          showRowHover={this.state.showRowHover}
-          stripedRows={this.state.stripedRows}
-        >
-          {tableData.map( (row, index) => (
-            <TableRow key={index}>
-              <TableRowColumn style={styles.tableColumn}>{row.name}<span style={styles.note}><br/>{row.singlePrice}</span></TableRowColumn>
-              <TableRowColumn style={styles.tableColumn}>{row.price}</TableRowColumn>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.name}>
+              <TableCell component="th" scope="row" className={classes.tableColumn}>{row.name}<span className={classes.note}><br/>{row.singlePrice}</span></TableCell>
+              <TableCell className={classes.tableColumn}>{row.price}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    );
-  }
+    </TableContainer>
+  );
 }
-
-export default PriceTable;
